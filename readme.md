@@ -37,7 +37,7 @@ This leave the cables plugged into this board and plug your jumper wires into th
 If you have experience with programming Arduinos, just push the included `SDVX-Fix-DJDAO-Jittery-Knobs.ino` to your device and skip to the next section.
 
 * Download the Arduino IDE here:
-** https://www.arduino.cc/en/software
+    * https://www.arduino.cc/en/software
 
 * Download this repository and rename the folder from `SDVX-Fix-DJDAO-Jittery-Knobs-main` to `SDVX-Fix-DJDAO-Jittery-Knobs`
 
