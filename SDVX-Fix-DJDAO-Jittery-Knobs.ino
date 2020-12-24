@@ -20,7 +20,6 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #include "./src/Encoder/Encoder.h"
 #include <Mouse.h>
-#include <Keyboard.h>
 
 /* Encoder */
 #define ENC_1_PIN_A 0
