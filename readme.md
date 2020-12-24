@@ -12,11 +12,6 @@ The reason for this is because pins 0-3 are interrupt based and will
 
 If you are using another board make sure that there are 4 interrupt pins and that all 4 data wires for the knobs are plugged into those pins
 
-##### Pushing the code to the Arduino
-If you have experience with programming Arduinos, just push the included `SDVX-Fix-DJDAO-Jittery-Knobs.ino` to your device and skip to the next section
-
-
-
 ##### Wiring things up
 NOTE: Please be careful when wiring things up and make sure that grounds are connected to grounds and 5v/vcc is connected to 5v. My DAO board came wired correctly but the wire colors were very much not right with red ground wires and black 5v wires.
 
@@ -25,9 +20,31 @@ You can either use jumper wire to hook everything up if you don't want to make a
 Then wire things accordingly:
 ![image](https://github.com/SilentMystification/SDVX-Fix-DJDAO-Jittery-Knobs/blob/main/Wiring%20Diagram.png)
 
+NOTE:
+This leave the cables plugged into this board and plug your jumper wires into the other end of these cables in their appropriate locations
+
+##### Pushing the code to the Arduino
+If you have experience with programming Arduinos, just push the included `SDVX-Fix-DJDAO-Jittery-Knobs.ino` to your device and skip to the next section.
+
+* Download the Arduino IDE here:
+** https://www.arduino.cc/en/software
+
+* Download this repository and rename the folder from `SDVX-Fix-DJDAO-Jittery-Knobs-main` to `SDVX-Fix-DJDAO-Jittery-Knobs`
+
+* Open `...\SDVX-Fix-DJDAO-Jittery-Knobs\SDVX-Fix-DJDAO-Jittery-Knobs.ino
+
+* Navigate to `Tools > Board` and Select `Leonardo` or `Leonardo ETH`, either should work but if youre having issues pushing code using `Leonardo ETH` switch to `Leonardo`
+
+* Navigate to `Tools > Port` and choose your device (It will NOT be COM1, it'll be a differnet number) 
+
+* Press the Upload arrow in the top left of the IDE or press `CTRL + U` to upload the code to the Arduino
+
+* Wait till you get a `Done Uploading` confirmation on the bottom right and confirm that turning the knobs move the mouse
+
+
 
 ##### Wrapping up
-After everythign is wired up plug the Arduino in without unplugging the original controller and go to SpiceTools or BTools and rebind your knobs to the Arduino.
+After everything is wired up plug the Arduino in without unplugging the original controller and go to SpiceTools or BTools and rebind your knobs to the Arduino. Depending on how you wired up the data pins your turn directions might be inverted but this can be corrected within SpiceTools or by rewiring and swapping pins 1 and 2 or pins 3 and 4
 
 And wallah it's done! Enjoy jitter free knobs! Now you can confidently play USC or SDVX while knowing that every time the knob gets off of the track its 100% your fault!
 
