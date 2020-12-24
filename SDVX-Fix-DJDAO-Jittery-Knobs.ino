@@ -20,34 +20,49 @@ along with this program.  If not, see <https://www.gnu.org/licenses/>.
 
 #include "./src/Encoder/Encoder.h"
 #include <Mouse.h>
+#include <Keyboard.h>
 
 /* Encoder */
 #define ENC_1_PIN_A 0
 #define ENC_1_PIN_B 1
 #define ENC_2_PIN_A 2
 #define ENC_2_PIN_B 3
+#define PULSECOUNT 50
+#define MOUSE_MULTIPLIER 1
 
 /* Encoder */
-Encoder encLeft(ENC_1_PIN_A, ENC_1_PIN_B);
-Encoder encRight(ENC_2_PIN_A, ENC_2_PIN_B);
+Encoder encLeft(PULSECOUNT, ENC_1_PIN_B, ENC_1_PIN_A);
+Encoder encRight(PULSECOUNT, ENC_2_PIN_B, ENC_2_PIN_A);
+
+
 
 /* Startup Loop */
 void setup() {
   Mouse.begin();
-}
+  
+  encLeft.updateState();
+  encRight.updateState();
+  
+  attachInterrupt(digitalPinToInterrupt(ENC_1_PIN_A), onLeftEncoderTurns, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(ENC_1_PIN_B), onLeftEncoderTurns, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(ENC_2_PIN_A), onRightEncoderTurns, CHANGE);
+  attachInterrupt(digitalPinToInterrupt(ENC_2_PIN_B), onRightEncoderTurns, CHANGE);
+} 
 
 /* Main Loop */
 void loop() {
-  encFuncLeft();
-  encFuncRight();
+  signed char mouseX = 0, mouseY = 0;
+  mouseX = encLeft.getDelta() * MOUSE_MULTIPLIER;
+  mouseY = encRight.getDelta() * MOUSE_MULTIPLIER;
+  Mouse.move(mouseX, mouseY, 0);
 }
 
-void encFuncLeft(){
-  Mouse.move(encLeft.read(), 0, 0);
-  encLeft.write(0);
+void onLeftEncoderTurns()
+{
+  bool dir = encLeft.updateEncoder();
 }
 
-void encFuncRight(){
-  Mouse.move(0, encRight.read(), 0);
-  encRight.write(0);
+void onRightEncoderTurns()
+{
+  bool dir = encRight.updateEncoder();
 }
