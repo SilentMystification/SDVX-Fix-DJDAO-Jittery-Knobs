@@ -5,8 +5,8 @@ This program was made for the DJDAO controllers that have knob jittering issues.
 ### What you need
 * SVSE5 or SVRE9 controller that has knob jitter when spinning, especially when spinning quickly
 * Arduino Leonardo or a Leonardo Clone (ATmega32U4 based)
- * MUST BE A LEONARD OR LEONARDO PRO MICRO, NOT AN UNO OR NANO OR OTHER
- * This must be something that is ATmega32U4 based otherwise you will not be able to use the Arduino as a HID USB device and SpiceTools will not be able to recognize this
+    * MUST BE A LEONARD OR LEONARDO PRO MICRO, NOT AN UNO OR NANO OR OTHER
+    * This must be something that is ATmega32U4 based otherwise you will not be able to use the Arduino as a HID USB device and SpiceTools will not be able to recognize this
 * Some male to male jumper cables
 or
 * Wire and some soldering skills for something more permanent
